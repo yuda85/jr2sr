@@ -26,6 +26,8 @@ import { AuthService } from './shared/services/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { SharedModule } from './shared/shared.module';
     AngularFirestoreModule,
     ReactiveFormsModule,
     SharedModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

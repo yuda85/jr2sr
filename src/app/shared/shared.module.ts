@@ -109,6 +109,7 @@ import { StickyNavModule } from 'ng2-sticky-nav';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomesevenMainBannerComponent } from '../components/pages/home-page-seven/homeseven-main-banner/homeseven-main-banner.component';
+import { MaterialModule } from '../material/material.module';
 
 const sharedModules = [
   CarouselModule,
@@ -118,6 +119,7 @@ const sharedModules = [
   StickyNavModule,
   LightboxModule,
   FormsModule,
+  MaterialModule,
 ];
 
 const sharedComponents = [

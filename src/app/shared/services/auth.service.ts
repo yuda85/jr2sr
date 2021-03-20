@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,8 @@ export class AuthService {
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private _snackBar: MatSnackBar
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -45,7 +47,7 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.openSnackBar(error.message);
       });
   }
 
@@ -60,7 +62,7 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.openSnackBar(error.message);
       });
   }
 
@@ -78,10 +80,10 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        this.openSnackBar('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
-        window.alert(error);
+        this.openSnackBar(error);
       });
   }
 
@@ -107,7 +109,7 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error);
+        this.openSnackBar(error);
       });
   }
 
@@ -136,6 +138,12 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
+    });
+  }
+
+  private openSnackBar(message: string, action: string = 'Dismiss') {
+    this._snackBar.open(message, action, {
+      duration: 6000,
     });
   }
 }
