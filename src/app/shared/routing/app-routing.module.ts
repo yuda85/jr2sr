@@ -12,6 +12,8 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 import { SignInComponent } from 'src/app/auth/sign-in/sign-in.component';
 import { ForgotPasswordComponent } from 'src/app/auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from 'src/app/auth/verify-email/verify-email.component';
+import { CoursesContainerComponent } from 'src/app/courses/courses-container/courses-container.component';
+import { CourseComponent } from 'src/app/courses/course/course.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -20,10 +22,12 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'courses', component: CoursesContainerComponent },
+  { path: 'course/:id', component: CourseComponent },
 ];
 
 @NgModule({

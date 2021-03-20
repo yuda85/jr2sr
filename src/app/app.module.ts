@@ -31,6 +31,7 @@ import { MaterialModule } from './material/material.module';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { CoursesModule } from './courses/courses.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     SharedModule,
     BrowserAnimationsModule,
     MaterialModule,
+    CoursesModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

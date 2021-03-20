@@ -1,14 +1,6 @@
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-  </a>
-</nav>
-
 <!-- Sidebar navigation -->
 <div class="container-fluid">
   <div class="row">
-
     <nav class="col-md-2 d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
@@ -30,28 +22,251 @@
     <!-- Main content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="inner-adjust">
-
         <div class="pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">User Profile</h1>
         </div>
         <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.userData as user">
+        <div class="row" *ngIf="user">
           <div class="col-md-12">
             <div class="media">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                alt="{{user.displayName}}">
+              <img
+                class="align-self-start mr-5 img-thumbnail rounded-circle"
+                src="{{
+                  user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+                }}"
+                alt="{{ user.displayName }}"
+              />
               <div class="media-body">
-                <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                <p>User ID: <strong>{{user.uid}}</strong></p>
-                <p>Email: <strong>{{user.email}}</strong></p>
-                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                <h1>
+                  Hello:
+                  <strong>{{
+                    user.displayName ? user.displayName : "User"
+                  }}</strong>
+                </h1>
+                <p>
+                  User ID: <strong>{{ user.uid }}</strong>
+                </p>
+                <p>
+                  Email: <strong>{{ user.email }}</strong>
+                </p>
+                <p>
+                  Email Verified: <strong>{{ user.emailVerified }}</strong>
+                </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </main>
+  </div>
+</div>
 
+<div class="page-title-area item-bg1">
+  <div class="container">
+    <div class="page-title-content">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>My Dashboard</li>
+      </ul>
+      <h2>My Dashboard</h2>
+    </div>
+  </div>
+</div>
+
+<div class="my-dashboard-area ptb-100" *ngIf="user">
+  <div class="container">
+    <div class="myDashboard-profile">
+      <div class="row align-items-center">
+        <div class="col-lg-3 col-md-5">
+          <div class="profile-image">
+            <img
+              src="{{
+                user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+              }}"
+              alt="image"
+            />
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-7">
+          <div class="profile-content">
+            <h3>{{ user.displayName ? user.displayName : "משתמש" }}</h3>
+
+            <ul class="contact-info">
+              <li>
+                <i class="bx bx-envelope"></i>
+                <a href="mailto:hello@jamesanderson.com">{{ user.email }}</a>
+              </li>
+              <!-- <li>
+                <i class="bx bx-phone"></i>
+                <a href="tel:+502464674">+502 464 674</a>
+              </li> -->
+              <li>
+                <i class="bx bx-world"></i>
+                <a href="#" target="_blank"
+                  >אימייל מאושר: {{ user.emailVerified ? "כן" : "לא" }}</a
+                >
+              </li>
+            </ul>
+
+            <a class="myDashboard-logout" (click)="onLogout()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="myDashboard-content">
+      <p>
+        היי <strong>{{ user.displayName }}</strong> (לא
+        <strong>{{ user.displayName }}</strong
+        >? <a (click)="onLogout()">התנתק</a>)
+      </p>
+
+      <mat-tab-group>
+        <mat-tab label="קורסים">
+          <h3>קורסים שנרכשו</h3>
+          <div class="recent-orders-table table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#074145O5</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O6</td>
+                  <td>October 18, 2019</td>
+                  <td>On Hold</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O7</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O5</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O6</td>
+                  <td>October 18, 2019</td>
+                  <td>On Hold</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O7</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-tab>
+        <mat-tab label="עבודות מועדפות">
+          <h3>עבודות מועדפות</h3>
+          <div class="recent-orders-table table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#074145O5</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O6</td>
+                  <td>October 18, 2019</td>
+                  <td>On Hold</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O7</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O5</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O6</td>
+                  <td>October 18, 2019</td>
+                  <td>On Hold</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#074145O7</td>
+                  <td>October 18, 2019</td>
+                  <td>Completed</td>
+                  <td>$49.00 for 1 item</td>
+                  <td>
+                    <a routerLink="/single-courses" class="view-button">View</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </div>

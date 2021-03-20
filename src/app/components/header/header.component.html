@@ -4,20 +4,20 @@
       <div class="row align-items-center">
         <div class="col-lg-8">
           <ul class="top-header-contact-info">
-            <li>
+            <!-- <li>
               <i class="bx bx-phone-call"></i>
-              <span>Contact support</span>
+              <span></span>
               <a href="tel:502464674">+502 464 674</a>
             </li>
             <li>
               <i class="bx bx-map"></i>
               <span>Our location</span>
               <a href="#">New York, USA</a>
-            </li>
+            </li> -->
             <li>
               <i class="bx bx-envelope"></i>
-              <span>Contact email</span>
-              <a href="mailto:hello@ednuv.com">hello@ednuv.com</a>
+              <span>תמיכה ושאלות</span>
+              <a href="mailto:hello@ednuv.com">yuda8855@gmail.com</a>
             </li>
           </ul>
         </div>
@@ -29,14 +29,14 @@
               class="default-btn"
               *ngIf="!(isLoggedIn$ | async); else logout"
               ><i class="bx bx-log-in icon-arrow before"></i
-              ><span class="label">Log In</span
+              ><span class="label">התחבר</span
               ><i class="bx bx-log-in icon-arrow after"></i
             ></a>
             <ng-template #logout>
               <a class="default-btn" (click)="onLogout()"
-                ><i class="bx bx-log-in icon-arrow before"></i
-                ><span class="label">Log Out</span
-                ><i class="bx bx-log-in icon-arrow after"></i
+                ><i class="bx bx-log-out icon-arrow before"></i
+                ><span class="label">התנתק</span
+                ><i class="bx bx-log-out icon-arrow after"></i
               ></a>
             </ng-template>
           </div>
@@ -68,74 +68,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link"
-                >Home <i class="bx bx-chevron-down"></i
-              ></a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a
-                    routerLink="/"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Online Education Portal</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/course-portal-online"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Course Portal Online</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/distant-learning"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Distant Learning</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/modern-teaching"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Modern Teaching</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/online-schooling"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Online Schooling</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/learning-school-online"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Learning School Online</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    routerLink="/remote-training-online"
-                    class="nav-link"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    >Remote Training Online</a
-                  >
-                </li>
-              </ul>
+              <a
+                routerLink="/courses"
+                class="nav-link"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >למידה</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">בלוג</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="javascript:void(0)"
+                [routerLink]="['/']"
+                routerLinkActive="router-link-active"
+                class="nav-link"
+                >דרושים</a
+              >
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn$ | async">
+              <a
+                routerLink="/dashboard"
+                [routerLinkActiveOptions]="{ exact: true }"
+                routerLinkActive="router-link-active"
+                class="nav-link"
+                >הפרופיל שלי</a
+              >
             </li>
             <li class="nav-item">
               <a href="javascript:void(0)" class="nav-link"

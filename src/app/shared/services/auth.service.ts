@@ -111,10 +111,11 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
+        this.ngZone.run(() => {});
         this.SetUserData(result.user);
+      })
+      .finally(() => {
+        this.router.navigate(['dashboard']);
       })
       .catch((error) => {
         this.openSnackBar(error);

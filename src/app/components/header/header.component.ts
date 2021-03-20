@@ -36,4 +36,9 @@ export class HeaderComponent implements OnInit {
     this.authService.SignOut();
     this.router.navigate(['/']);
   }
+
+  public onDashboardClick(): void {
+    console.log('vvv');
+    this.router.navigate(['dashboard']);
+  }
 }
