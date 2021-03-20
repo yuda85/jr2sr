@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/homez"
+  publish = "dist/jr2sr"
   command = "npm run build"
 [[redirects]]
   from = "/*"
