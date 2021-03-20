@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+@import url(//fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 :root {
-  --fontFamily1: "Poppins", sans-serif;
-  --fontFamily2: "Open Sans", sans-serif;
+  --fontFamily1: "Open Sans Hebrew", "Poppins", sans-serif;
+  --fontFamily2: "Open Sans Hebrew", "Open Sans", sans-serif;
   --mainColor: #ff1949;
   --optionalColor: #0eb582;
   --whiteColor: #ffffff;
@@ -3582,7 +3584,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Open Sans Hebrew", Roboto, "Helvetica Neue", sans-serif;
 }
 
 .navbar-brand img {
