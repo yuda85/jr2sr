@@ -25,6 +25,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HomeComponent } from './components/home/home.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
