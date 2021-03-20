@@ -21,6 +21,13 @@
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
     "firebase": "^8.3.1",
+    "bootstrap": "^5.0.0-beta2",
+    "ng2-sticky-nav": "^9.0.1",
+    "ngx-countup": "^7.3.3",
+    "ngx-lightbox": "^2.2.2",
+    "ngx-owl-carousel-o": "^5.0.0",
+    "ngx-scrolltop": "^2.3.1",
+    "ngx-tabset": "^2.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
