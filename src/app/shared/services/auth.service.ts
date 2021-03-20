@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { VerifyEmailComponent } from 'src/app/components/verify-email/verify-email.component';
+import { VerifyEmailComponent } from '../../auth/verify-email/verify-email.component';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({

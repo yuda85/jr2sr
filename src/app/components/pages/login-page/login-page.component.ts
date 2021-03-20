@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from 'src/app/auth/forgot-password/forgot-password.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ForgotPasswordComponent } from '../../forgot-password/forgot-password.component';
+// import { ForgotPasswordComponent } from '../../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login-page',

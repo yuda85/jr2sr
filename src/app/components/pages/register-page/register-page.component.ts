@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { VerifyEmailComponent } from 'src/app/auth/verify-email/verify-email.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { VerifyEmailComponent } from '../../verify-email/verify-email.component';
+// import { VerifyEmailComponent } from '../../verify-email/verify-email.component';
 
 @Component({
   selector: 'app-register-page',

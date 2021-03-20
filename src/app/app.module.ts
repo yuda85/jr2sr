@@ -9,11 +9,11 @@ import { AppRoutingModule } from './shared/routing/app-routing.module';
 
 // App components
 import { AppComponent } from './app.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+// import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+// import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+// import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 // Firebase services + enviorment module
 import { AngularFireModule } from '@angular/fire';
@@ -28,6 +28,9 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
