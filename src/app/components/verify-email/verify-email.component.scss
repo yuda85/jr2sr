@@ -1,0 +1,20 @@
+.verify-email {
+  text-align: center;
+  .btnPrimary {
+    margin: 1rem 0;
+    transition: var(--transition);
+    display: block;
+    width: 100%;
+    padding: 13px 25px 12px 25px;
+    position: relative;
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    box-shadow: 0px 5px 28.5px 1.5px rgb(255 97 47 / 20%);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--mainColor);
+    border-radius: 5px;
+    font-size: 14.5px;
+    font-weight: 700;
+  }
+}

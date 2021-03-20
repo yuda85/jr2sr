@@ -8,14 +8,17 @@ import {
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ForgotPasswordComponent } from 'src/app/components/forgot-password/forgot-password.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { VerifyEmailComponent } from 'src/app/components/verify-email/verify-email.component';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any; // Save logged in user data
+
+  private _isLoggedIn: Subject<boolean> = new Subject();
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -32,13 +35,18 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user'));
+        this._isLoggedIn.next(true);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
+        this._isLoggedIn.next(false);
       }
     });
   }
 
+  public isUserLoggedIn(): Observable<boolean> {
+    return this._isLoggedIn.asObservable();
+  }
   // Sign in with email/password
   SignIn(email, password) {
     return this.afAuth
@@ -71,11 +79,7 @@ export class AuthService {
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
-    return this.afAuth.currentUser
-      .then((u) => u.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['verify-email']);
-      });
+    return this.afAuth.currentUser.then((u) => u.sendEmailVerification());
   }
 
   // Reset Forggot password
@@ -141,7 +145,6 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
     });
   }
 

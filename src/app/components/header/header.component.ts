@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  public isLoggedIn$: Observable<boolean>;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.isLoggedIn$ = this.authService.isUserLoggedIn();
+  }
 
   classApplied = false;
   toggleClass() {
@@ -23,5 +30,10 @@ export class HeaderComponent implements OnInit {
   classApplied3 = false;
   toggleClass3() {
     this.classApplied3 = !this.classApplied3;
+  }
+
+  public onLogout(): void {
+    this.authService.SignOut();
+    this.router.navigate(['/']);
   }
 }
