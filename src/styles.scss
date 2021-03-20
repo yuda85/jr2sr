@@ -3584,3 +3584,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.navbar-brand img {
+  max-width: 200px;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-brand img {
+    max-width: 120px;
+  }
+}
