@@ -14,6 +14,8 @@ import { ForgotPasswordComponent } from 'src/app/auth/forgot-password/forgot-pas
 import { VerifyEmailComponent } from 'src/app/auth/verify-email/verify-email.component';
 import { CoursesContainerComponent } from 'src/app/courses/courses-container/courses-container.component';
 import { CourseComponent } from 'src/app/courses/course/course.component';
+import { BlogContainerComponent } from 'src/app/blog/blog-container/blog-container.component';
+import { PostComponent } from 'src/app/blog/post/post.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'verify-email', component: VerifyEmailComponent },
   { path: 'courses', component: CoursesContainerComponent },
   { path: 'course/:id', component: CourseComponent },
+  { path: 'blog', component: BlogContainerComponent },
+  { path: 'blog/:id', component: PostComponent },
 ];
 
 @NgModule({
