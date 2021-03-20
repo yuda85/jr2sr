@@ -8,6 +8,8 @@ import {
 } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ForgotPasswordComponent } from 'src/app/components/forgot-password/forgot-password.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +22,8 @@ export class AuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -81,6 +84,7 @@ export class AuthService {
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         this.openSnackBar('Password reset email sent, check your inbox.');
+        this.dialog.closeAll();
       })
       .catch((error) => {
         this.openSnackBar(error);

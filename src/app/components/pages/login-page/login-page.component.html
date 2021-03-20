@@ -16,7 +16,7 @@
                 /></a>
               </div>
               <h3>Welcome back</h3>
-              <p>New to Ednuv? <a routerLink="/register">Sign up</a></p>
+              <p>New to Ednuv? <a routerLink="/register-user">Sign up</a></p>
               <form>
                 <div class="form-group">
                   <input
@@ -43,7 +43,7 @@
                   Login
                 </button>
                 <div class="forgot-password">
-                  <a routerLink="/">Forgot Password?</a>
+                  <a (click)="openDialog()">Forgot Password?</a>
                 </div>
                 <div class="connect-with-social">
                   <!-- <button type="submit" class="facebook"><i class='bx bxl-facebook'></i> Connect with Google</button> -->
