@@ -35,7 +35,7 @@ import { CoursesModule } from './courses/courses.module';
 import { BlogModule } from './blog/blog.module';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app-state';
-import { JobComponent } from './jobs/job/job.component';
+import { JobModule } from './jobs/job.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { JobComponent } from './jobs/job/job.component';
     VerifyEmailComponent,
     HeaderComponent,
     HomeComponent,
-    JobComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +60,7 @@ import { JobComponent } from './jobs/job/job.component';
     MaterialModule,
     CoursesModule,
     BlogModule,
+    JobModule,
     NgxsModule.forRoot(AppState, {
       developmentMode: !environment.production,
     }),
