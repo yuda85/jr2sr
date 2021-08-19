@@ -4,6 +4,7 @@ import { SetJobs } from './global.actions';
 import _ from 'lodash';
 
 import { Injectable } from '@angular/core';
+import { JobService } from 'src/app/jobs/services/job.service';
 
 @Injectable()
 @State<GlobalStateModel>({
@@ -14,7 +15,14 @@ import { Injectable } from '@angular/core';
   },
 })
 export class GlobalState {
-  constructor() {}
+  constructor(private jobsService: JobService) {}
+
+  ngxsOnInit(ctx: StateContext<GlobalStateModel>) {
+    this.jobsService.fetchJobs().subscribe((data) => {
+      ctx.patchState({ jobs: data });
+      console.log(data);
+    });
+  }
 
   @Action(SetJobs)
   setEnums(ctx: StateContext<GlobalStateModel>, action: SetJobs) {

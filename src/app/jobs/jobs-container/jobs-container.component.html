@@ -1,2 +1,12 @@
-<p>jobs-container works!</p>
-<app-job></app-job>
+<div class="jobs-container" *ngIf="jobs$ | async as jobs">
+  <div class="container">
+    <div class="row">
+      <div
+        class="jobs-container__jobs col-lg-4 col-md-6"
+        *ngFor="let job of jobs"
+      >
+        <app-job [job]="job"></app-job>
+      </div>
+    </div>
+  </div>
+</div>

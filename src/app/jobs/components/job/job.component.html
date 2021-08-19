@@ -1,1 +1,46 @@
-<p>job works!</p>
+<div class="job" *ngIf="job">
+  <div class="">
+    <div class="single-blog-post mb-30">
+      <div class="post-image">
+        <a routerLink="/blog/1" class="d-block">
+          <img
+            src="https://source.unsplash.com/user/erondu/1600x900"
+            alt="image"
+          />
+        </a>
+        <div class="tag">
+          <a>{{ job.category }}</a>
+        </div>
+      </div>
+      <div class="post-content">
+        <ul class="post-meta">
+          <li class="post-author">
+            <img
+              src="assets/img/user1.jpg"
+              class="d-inline-block rounded-circle mr-2"
+              alt="image"
+            />
+            <a routerLink="/blog/1" class="d-inline-block">{{ job.company }}</a>
+          </li>
+          <li>
+            <a>{{ job.datePublished | date: "dd/mm/yy" }}</a>
+          </li>
+        </ul>
+        <h3>
+          <a routerLink="/blog/1" class="d-inline-block">{{ job.title }}</a>
+        </h3>
+        <div class="actions">
+          <a mat-button class="read-more-btn"
+            >עוד פרטים <i class="bx bx-left-arrow-alt"></i
+          ></a>
+          <button mat-raised-button>
+            להגשת מועמדות <i class="bx bx-check-square"></i>
+          </button>
+          <button mat-button>שמור <i class="bx bxs-save"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- {{ job | json }} -->
+</div>

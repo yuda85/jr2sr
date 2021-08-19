@@ -1,4 +1,6 @@
+import { IJob } from 'src/app/models';
+
 export class GlobalStateModel {
   companies: any;
-  jobs: any[];
+  jobs: Array<IJob>;
 }

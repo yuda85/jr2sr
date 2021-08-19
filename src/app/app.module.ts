@@ -36,6 +36,7 @@ import { BlogModule } from './blog/blog.module';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app-state';
 import { JobModule } from './jobs/job.module';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,10 @@ import { JobModule } from './jobs/job.module';
       developmentMode: !environment.production,
     }),
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    { provide: BUCKET, useValue: 'gs://jr2sr-301718.appspot.com' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
