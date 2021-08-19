@@ -33,6 +33,8 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { CoursesModule } from './courses/courses.module';
 import { BlogModule } from './blog/blog.module';
+import { NgxsModule } from '@ngxs/store';
+import { AppState } from './state/app-state';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,9 @@ import { BlogModule } from './blog/blog.module';
     MaterialModule,
     CoursesModule,
     BlogModule,
+    NgxsModule.forRoot(AppState, {
+      developmentMode: !environment.production,
+    }),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
