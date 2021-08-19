@@ -35,6 +35,7 @@ import { CoursesModule } from './courses/courses.module';
 import { BlogModule } from './blog/blog.module';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app-state';
+import { JobComponent } from './jobs/job/job.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AppState } from './state/app-state';
     VerifyEmailComponent,
     HeaderComponent,
     HomeComponent,
+    JobComponent,
   ],
   imports: [
     BrowserModule,
