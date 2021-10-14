@@ -4,7 +4,6 @@ export interface IJob {
   id: string;
   title: string;
   description: string;
-  datePublished: number;
   requirements: string;
   isSaved?: boolean;
   didApply?: boolean;
@@ -18,4 +17,5 @@ export interface IJob {
   hot: boolean;
   forStudents: boolean;
   uploadingUserId?: string;
+  timestamp: number;
 }

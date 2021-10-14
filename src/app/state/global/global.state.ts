@@ -18,10 +18,15 @@ export class GlobalState {
   constructor(private jobsService: JobService) {}
 
   ngxsOnInit(ctx: StateContext<GlobalStateModel>) {
-    this.jobsService.fetchJobs().subscribe((data) => {
-      ctx.patchState({ jobs: data });
-      console.log(data);
-    });
+    // this.jobsService.fetchJobs().subscribe((data) => {
+    //   ctx.patchState({ jobs: data });
+    //   console.log(data);
+    // });
+
+    this.jobsService.loadItems();
+    setTimeout(() => {
+      this.jobsService.nextPage();
+    }, 3000);
   }
 
   @Action(SetJobs)

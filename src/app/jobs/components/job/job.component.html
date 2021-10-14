@@ -30,13 +30,25 @@
           <a routerLink="/blog/1" class="d-inline-block">{{ job.title }}</a>
         </h3>
         <div class="actions">
-          <a mat-button class="read-more-btn"
+          <a routerLink="/sign-in" class="default-btn"
+            ><i class="bx bx-left-arrow-alt icon-arrow before"></i
+            ><span class="label">עוד פרטים</span
+            ><i class="bx bx-left-arrow-alt icon-arrow after"></i
+          ></a>
+
+          <a routerLink="/sign-in" class="default-btn default-btn--apply"
+            ><i class="bx bx-plus-circle icon-arrow before"></i
+            ><span class="label">להגשת מועמדות</span
+            ><i class="bx bx-plus-circle icon-arrow after"></i
+          ></a>
+
+          <!-- <a mat-button class="read-more-btn"
             >עוד פרטים <i class="bx bx-left-arrow-alt"></i
           ></a>
           <button mat-raised-button>
             להגשת מועמדות <i class="bx bx-check-square"></i>
           </button>
-          <button mat-button>שמור <i class="bx bxs-save"></i></button>
+          <button mat-button>שמור <i class="bx bxs-save"></i></button> -->
         </div>
       </div>
     </div>

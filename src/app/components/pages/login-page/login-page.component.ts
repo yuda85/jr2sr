@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
     this.authService
       .GoogleAuth()
       .then((value) => {
-        debugger;
+        console.log(value);
       })
       .finally(() => {
         this.router.navigate(['dashboard']);

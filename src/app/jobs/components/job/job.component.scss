@@ -178,6 +178,35 @@
   .actions {
     display: flex;
     justify-content: space-between;
+    margin-top: 3.4em;
+  }
+
+  .default-btn {
+    border-radius: 30px;
+    padding: 6px 14px 6px 49px;
+    overflow: hidden;
+    i {
+      top: 5px;
+    }
+    .icon-arrow {
+      .before {
+        left: 13px;
+      }
+      .after {
+        right: 10px;
+      }
+    }
+    &--apply {
+      background: #fff;
+      color: #171717;
+      i,
+      i * {
+        color: #171717;
+      }
+      &:hover {
+        border-color: var(--mainColor);
+      }
+    }
   }
 }
 
