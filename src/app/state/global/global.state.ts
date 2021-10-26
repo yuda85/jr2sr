@@ -1,6 +1,6 @@
 import { GlobalStateModel } from './global.model';
 import { State, Action, StateContext } from '@ngxs/store';
-import { SetJobs } from './global.actions';
+import { AddJobs, SetJobs } from './global.actions';
 import _ from 'lodash';
 
 import { Injectable } from '@angular/core';
@@ -18,25 +18,21 @@ export class GlobalState {
   constructor(private jobsService: JobService) {}
 
   ngxsOnInit(ctx: StateContext<GlobalStateModel>) {
-    // this.jobsService.fetchJobs().subscribe((data) => {
-    //   ctx.patchState({ jobs: data });
-    //   console.log(data);
-    // });
-
-    this.jobsService.loadItems();
-    setTimeout(() => {
-      this.jobsService.nextPage();
-    }, 3000);
+    this.jobsService.fetchJobs().subscribe((data) => {
+      ctx.patchState({ jobs: data });
+    });
   }
 
   @Action(SetJobs)
-  setEnums(ctx: StateContext<GlobalStateModel>, action: SetJobs) {
-    ctx.patchState({ jobs: action.payload });
-    // const data = action.payload;
-    // const updatedConfiguration = ctx.getState().Configuration || {
-    //   Enums: null,
-    // };
-    // updatedConfiguration.Enums = data;
-    // ctx.patchState({ Configuration: updatedConfiguration });
+  setJobs(ctx: StateContext<GlobalStateModel>, action: SetJobs) {
+    const currentJobs = ctx.getState().jobs;
+    ctx.patchState({ jobs: [...currentJobs, ...action.payload] });
+  }
+
+  @Action(AddJobs)
+  addJobs(ctx: StateContext<GlobalStateModel>, action: SetJobs) {
+    const currentJobs = ctx.getState().jobs;
+    const finalJobs = _.uniq([...currentJobs, ...action.payload], 'id');
+    ctx.patchState({ jobs: finalJobs });
   }
 }

@@ -16,4 +16,9 @@ export class JobsContainerComponent implements OnInit {
   ngOnInit(): void {
     this.jobs$ = this.jobsFacade.getJobs();
   }
+
+  onScroll() {
+    console.log('scrolled!!');
+    this.jobsFacade.nextPage();
+  }
 }

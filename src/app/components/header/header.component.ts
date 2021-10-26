@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public onDashboardClick(): void {
-    console.log('vvv');
     this.router.navigate(['dashboard']);
   }
 }
