@@ -13,6 +13,7 @@ import { CoursesContainerComponent } from 'src/app/courses/courses-container/cou
 import { CourseComponent } from 'src/app/courses/course/course.component';
 import { BlogContainerComponent } from 'src/app/blog/blog-container/blog-container.component';
 import { PostComponent } from 'src/app/blog/post/post.component';
+import { AddJobComponent } from 'src/app/components/add-job/add-job.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -21,7 +22,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'course/:id', component: CourseComponent },
   { path: 'blog', component: BlogContainerComponent },
   { path: 'blog/:id', component: PostComponent },
+  { path: 'add-job', component: AddJobComponent },
 ];
 
 @NgModule({

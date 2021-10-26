@@ -37,6 +37,7 @@ import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app-state';
 import { JobModule } from './jobs/job.module';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { AddJobComponent } from './components/add-job/add-job.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
     VerifyEmailComponent,
     HeaderComponent,
     HomeComponent,
+    AddJobComponent,
   ],
   imports: [
     BrowserModule,

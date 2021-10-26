@@ -1,0 +1,253 @@
+<div class="new-job">
+  <div class="page-title-area item-bg2">
+    <div class="container">
+      <div class="page-title-content">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>Contact</li>
+        </ul>
+        <h2>Contact Us</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-info-area pt-100 pb-70">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="contact-info-box mb-30">
+            <div class="icon">
+              <i class="bx bx-envelope"></i>
+            </div>
+            <h3>Email Here</h3>
+            <p><a href="mailto:hello@ednuv.com">hello@ednuv.com</a></p>
+            <p><a href="mailto:ednuv@hello.com">ednuv@hello.com</a></p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="contact-info-box mb-30">
+            <div class="icon">
+              <i class="bx bx-map"></i>
+            </div>
+            <h3>Location Here</h3>
+            <p>
+              <a href="https://goo.gl/maps/Mii9keyeqXeNH4347" target="_blank"
+                >2750 Quadra Street Victoria Road, New York, United States</a
+              >
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3"
+        >
+          <div class="contact-info-box mb-30">
+            <div class="icon">
+              <i class="bx bx-phone-call"></i>
+            </div>
+            <h3>Call Here</h3>
+            <p><a href="tel:1234567890">+123 456 7890</a></p>
+            <p><a href="tel:2414524526">+241 452 4526</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-area pb-100">
+    <div class="container">
+      <div class="section-title">
+        <span class="sub-title">Contact Us</span>
+        <h2>מלאו את הטופס לפרסום עבודה</h2>
+        <p>לכל שאלה אנחנו כאן</p>
+      </div>
+      <div class="contact-form">
+        <form [formGroup]="newJobForm" (ngSubmit)="submit()">
+          <div class="row">
+            <div class="col-lg-4 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="standard">
+                  <mat-label>שם המשרה</mat-label>
+                  <input
+                    required
+                    formControlName="title"
+                    matInput
+                    placeholder="מפתח פרונט"
+                  />
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+                  <mat-error
+                    *ngIf="
+                      submitted && f.title.errors && f.title.errors.required
+                    "
+                    >צריך לדעת מה המשרה...</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="standard">
+                  <mat-label>שם החברה</mat-label>
+                  <input
+                    formControlName="companyName"
+                    matInput
+                    placeholder="מי אתם????"
+                  />
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="standard">
+                  <mat-label>טווח שכר</mat-label>
+                  <input
+                    formControlName="salary"
+                    matInput
+                    placeholder="לא חובה למלא, אנחנו לא מציגים "
+                  />
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="standard">
+                  <mat-label>תיאור המשרה</mat-label>
+                  <textarea
+                    required
+                    formControlName="description"
+                    matInput
+                    placeholder="לחברה הכי מגניבה בארץ..."
+                  ></textarea>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+                  <mat-error
+                    *ngIf="
+                      submitted &&
+                      f.description.errors &&
+                      f.description.errors.required
+                    "
+                    >צריך לדעת מה המשרה...</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>אזור בארץ</mat-label>
+                  <mat-select required formControlName="area">
+                    <mat-option value="north">צפון</mat-option>
+                    <mat-option value="cneter">מרכז</mat-option>
+                    <mat-option value="south">דרום</mat-option>
+                  </mat-select>
+                  <mat-error
+                    *ngIf="submitted && f.area.errors && f.area.errors.required"
+                    >שידעו איפה אתם</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="fill">
+                  <mat-label>קטגוריה</mat-label>
+                  <mat-select required formControlName="category">
+                    <mat-option
+                      *ngFor="let category of jobCategories | keyvalue"
+                      value="category.key"
+                      >{{ category.value }}</mat-option
+                    >
+                  </mat-select>
+                  <mat-error
+                    *ngIf="
+                      submitted &&
+                      f.category.errors &&
+                      f.category.errors.required
+                    "
+                    >עוזר לנו לחשוף אתכם למעמדים הכי מתאימים</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <mat-form-field appearance="standard">
+                  <mat-label>דרישות</mat-label>
+                  <input
+                    formControlName="requierments"
+                    matInput
+                    placeholder="לא חובה, אבל שימו פסיק או תרדו שורה בין דרישה לדרישה"
+                  />
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+              <div class="form-group">
+                <mat-checkbox formControlName="forStudents"></mat-checkbox>
+                <mat-label>מתאים לסטודנטים</mat-label>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12">
+              <div class="form-group">
+                <mat-checkbox formControlName="hot"></mat-checkbox>
+                <mat-label>משרה חמה?</mat-label>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+              <div class="form-group">
+                <button
+                  type="button"
+                  mat-raised-button
+                  (click)="fileInput.click()"
+                >
+                  העלאת תמונה למשרה
+                </button>
+                <input
+                  formControlName="imageUrl"
+                  hidden
+                  (change)="onFileSelected($event)"
+                  #fileInput
+                  type="file"
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12">
+              <div class="form-group">
+                <button
+                  type="button"
+                  mat-raised-button
+                  (click)="fileInput.click()"
+                >
+                  העלאת לוגו חברה
+                </button>
+                <input
+                  formControlName="imageUrl"
+                  hidden
+                  (change)="onFileSelected($event)"
+                  #fileInput2
+                  type="file"
+                  accept="image/png, image/jpeg"
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+              <button type="submit" class="default-btn">
+                <i class="bx bx-paper-plane icon-arrow before"></i
+                ><span class="label">לשליחת הטופס</span
+                ><i class="bx bx-paper-plane icon-arrow after"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="contact-bg-image">
+      <img src="assets/img/map.png" alt="image" />
+    </div>
+  </div>
+</div>
