@@ -9,6 +9,7 @@ import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { filter, finalize, map, take, tap } from 'rxjs/operators';
 import { IJob } from 'src/app/models';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { AddJobs } from 'src/app/state/global/global.actions';
 import * as uuid from 'uuid';
 
@@ -22,7 +23,8 @@ export class JobService {
   constructor(
     private db: AngularFirestore,
     private storage: AngularFireStorage,
-    private store: Store
+    private store: Store,
+    private authService: AuthService
   ) {
     // ddddd.forEach((job) => {
     //   this.addNewJob(job, 'PdNWzMJsipU90KYUVEqQGgyFMQz2');
@@ -118,7 +120,9 @@ export class JobService {
     //   );
   }
 
-  public addNewJob(job: IJob, userId: string): void {
+  public addNewJob(job: IJob): void {
+    console.log('got here');
+    const userId = this.authService.getUser().uid;
     this.db.collection('jobs').add(<IJob>{ ...job, uploadingUserId: userId });
   }
 

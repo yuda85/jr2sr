@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { JobsFacadeService } from 'src/app/jobs/services/jobs-facade.service';
 import { JobCategories } from 'src/app/models';
 
 @Component({
@@ -14,7 +15,7 @@ import { JobCategories } from 'src/app/models';
 })
 export class AddJobComponent implements OnInit {
   srcResult: any;
-  constructor() {}
+  constructor(private jobFacade: JobsFacadeService) {}
 
   public submitted: boolean = false;
 
@@ -46,6 +47,10 @@ export class AddJobComponent implements OnInit {
   submit() {
     this.submitted = true;
     console.log(this.newJobForm);
+
+    if (this.newJobForm.valid) {
+      this.jobFacade.addJob(this.newJobForm.value);
+    }
   }
   onFileSelected(event) {
     const file: any = event.target.files[0];

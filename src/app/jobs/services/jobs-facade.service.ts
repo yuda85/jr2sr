@@ -18,4 +18,8 @@ export class JobsFacadeService {
   public nextPage(): void {
     this.jobService.nextPage();
   }
+
+  public addJob(job: IJob) {
+    this.jobService.addNewJob(job);
+  }
 }

@@ -149,6 +149,10 @@ export class AuthService {
     });
   }
 
+  public getUser(): User {
+    return this.userData;
+  }
+
   private openSnackBar(message: string, action: string = 'Dismiss') {
     this._snackBar.open(message, action, {
       duration: 6000,
